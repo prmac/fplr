@@ -9,7 +9,8 @@ format_fpl <- function(x, ...) {
   x[["data"]] %>%
     dplyr::mutate(Price = now_cost/10,
                   Name = stringr::str_c(first_name, second_name, sep = " "),
-                  Name = stri_trans_general(Name, "Latin-ASCII"),
+                  Name = fix_names(Name),
+                  web_name = fix_names(web_name),
                   Form = as.numeric(form),
                   Selected_by = as.numeric(selected_by_percent),
                   PPG = as.numeric(points_per_game),
