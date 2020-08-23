@@ -1,3 +1,4 @@
+#' @export
 match_players <- function(fpl_data = collate_fpl_data(), understat_data = get_player_xX()) {
   fpl_data <- fpl_data %>%
     dplyr::filter(Minutes > 0)
