@@ -14,13 +14,14 @@ format_fpl <- function(x, ...) {
                   Form = as.numeric(form),
                   Selected_by = as.numeric(selected_by_percent),
                   PPG = as.numeric(points_per_game),
+                  VAPM = (PPG - 2) / Price,
                   value_form = as.numeric(value_form),
                   value_season = as.numeric(value_season)) %>%
     dplyr::select(
                 Name, element_type, Form, Price,
                 Selected_by, team, total_points, transfers_in,
                 transfers_out, value_form, value_season, web_name, minutes,
-                bonus, PPG)
+                bonus, PPG, VAPM)
 }
 
 #' @export
@@ -49,6 +50,7 @@ collate_fpl_data <- function(data = get_bootstrap()) {
                     PPG,
                     Bonus = bonus,
                     Form,
+                    VAPM,
                     Season_value = value_season,
                     Form_value = value_form,
                     Selected_by,
