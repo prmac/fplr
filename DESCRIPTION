@@ -16,5 +16,6 @@ Depends:
     stringr,
     ggplot2,
     stringi,
-    understatr
+    understatr,
+    R (>= 2.10)
 RoxygenNote: 7.1.0
